@@ -1,0 +1,19 @@
+/* Методологія: один повний півкруг, що плавно розчиняється у чорному фоні. */
+.three-pillars{background:#111214!important}
+/* The arc reaches the exact section background before its lower edge. */
+.pillars-glow{width:145%;height:125%;left:-22.5%;bottom:-35%;border-radius:50% 50% 0 0;background:linear-gradient(180deg,#242528 0%,#1a1b1e 40%,#111214 62%,#111214 100%)}
+.pillars-glow::after{display:none}
+
+/* Наступний екран — суцільний чорний, без сітки та без переходу кольору. */
+.program{margin-top:-2px;background:linear-gradient(180deg,#111214 0%,#111214 36%,#151619 72%,#202126 100%)}
+.program::before,.program::after{display:none!important}
+.program-heading{max-width:920px;margin:0 auto 38px;padding:0;border:0;background:transparent;box-shadow:none}
+.program-heading .program-kicker{color:#f0443c}
+.program-heading h2{margin:10px 0 0;color:#fff;text-shadow:0 8px 28px #0008}
+.program-heading .program-kicker,.program-heading h2{transition:color .25s ease,text-shadow .25s ease,transform .25s ease;cursor:default}
+.program-heading .program-kicker:hover{color:#fff;text-shadow:0 0 18px #fff7;transform:translateY(-2px)}
+.program-heading h2:hover{color:#f0443c;text-shadow:0 0 24px #f0443c8c;transform:translateY(-2px)}
+@media(max-width:700px){.program-heading{padding:18px 16px 21px;border-radius:19px}}
+.module-lessons{display:grid;gap:10px;max-width:780px;margin:0 0 26px;padding:0;list-style:none;font-size:16px;line-height:1.45}.module-lessons li{position:relative;padding-left:18px}.module-lessons li::before{content:"";position:absolute;top:.68em;left:0;width:6px;height:6px;border-radius:50%;background:#f0443c}.module-result span{white-space:pre-line}
+.program-intro{display:flex;justify-content:center;margin:-8px 0 12px}.program-intro button{padding:10px 18px;border:1px solid #ffffff44;border-radius:20px;background:transparent;color:#fff;font:400 10px "Days One",Manrope,Arial,sans-serif;cursor:pointer;transition:color .2s ease,background .2s ease,border-color .2s ease}.program-intro button:hover,.program-intro button.is-active{border-color:#e3302a;background:#e3302a;color:#fff}
+@media(max-width:700px){.module-lessons{font-size:14px;margin-bottom:20px}}

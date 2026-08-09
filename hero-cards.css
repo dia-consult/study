@@ -1,0 +1,6 @@
+.hero-facts span{font-size:18px;transition:transform .28s cubic-bezier(.2,.8,.25,1);will-change:transform}
+.hero-facts div{position:relative;z-index:1;transition:box-shadow .28s ease,background .28s ease}
+.hero-facts div:hover{z-index:2;background:#fffafa;box-shadow:0 12px 25px #9e211d1d}
+.hero-facts div:hover span{transform:scale(1.1)}
+@media(prefers-reduced-motion:reduce){.hero-facts span,.hero-facts div{transition:none}.hero-facts div:hover span{transform:none}}
+@media(max-width:700px){.hero-facts span{font-size:12px}.hero-facts div:hover span{transform:scale(1.04)}}

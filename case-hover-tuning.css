@@ -1,0 +1,6 @@
+.case-grid article{background:#494a4e;border-color:#72757a}
+.case-grid article::after{background:#30323866;mix-blend-mode:normal;opacity:1}
+.case-grid img{filter:grayscale(.3) contrast(.95)}
+.case-grid article:hover{background:#494a4e;border-color:#f4f4f4}
+.case-grid article:hover::after{opacity:0}
+.case-grid article:hover img{filter:none}

@@ -1,0 +1,1 @@
+.program{position:relative;overflow:visible}.program::after{content:"";position:absolute;z-index:0;left:0;right:0;top:-150px;height:310px;background:linear-gradient(180deg,#dd0b05 0%,#ce0a05 42%,#b70b07 72%,transparent 100%);pointer-events:none}.program::before{z-index:1}.program .wrap{z-index:2}

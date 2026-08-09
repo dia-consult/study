@@ -1,0 +1,4 @@
+.transformation{position:relative;z-index:1;padding-bottom:150px;margin-bottom:-62px}
+.transformation::after{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:145px;background:linear-gradient(180deg,#101114 0%,#0a0a0c 54%,#100809 100%)}
+.cases{padding-top:154px;background:radial-gradient(ellipse at 50% 108%,#7d0807 0%,#270b0c 47%,#100809 77%,#101114 100%)}
+@media(max-width:700px){.transformation{padding-bottom:110px;margin-bottom:-45px}.transformation::after{height:105px}.cases{padding-top:110px}}

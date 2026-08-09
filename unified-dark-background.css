@@ -1,0 +1,6 @@
+.transformation{background:linear-gradient(180deg,#111214 0%,#1d1113 48%,#5a100e 100%)}
+.cases{background:linear-gradient(180deg,#5a100e 0%,#281013 47%,#111214 100%)}
+.transformation{padding-bottom:55px;margin-bottom:0}
+.transformation::after,.cases::before{display:none}
+.cases{padding-top:55px}
+@media(max-width:700px){.transformation{padding-bottom:40px}.cases{padding-top:40px}}
