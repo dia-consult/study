@@ -1,3 +1,0 @@
-/* Seamless transition from the bonus section into the author section. */
-.bonus{position:relative;z-index:1;padding-bottom:112px;background:linear-gradient(180deg,#f7e6c9 0%,#f7e6c9 70%,#372725 100%)}
-.author{margin-top:-1px;background:linear-gradient(180deg,#372725 0%,#191516 24%,#101112 100%)}
