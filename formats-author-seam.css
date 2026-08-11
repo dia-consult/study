@@ -1,0 +1,5 @@
+/* The package slide dissolves into the black methodology slide. */
+.formats{background:radial-gradient(ellipse at 50% 54%,#4d0d0b 0%,#271012 33%,#151314 59%,#101112 82%,#101112 100%)}
+.author{background:#101112}
+.author-copy h2{font-size:34px;line-height:1.12}
+@media(max-width:800px){.author-copy h2{font-size:29px}}
