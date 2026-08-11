@@ -1,0 +1,3 @@
+/* Four supplied photos in a stable, visible grid. */
+.author-gallery{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:1.25fr .85fr}
+.author-stage{grid-column:span 2;grid-row:1}.author-paris{grid-column:3;grid-row:1}.author-workshop{grid-column:1;grid-row:2}.author-class{display:block;grid-column:span 2;grid-row:2}
