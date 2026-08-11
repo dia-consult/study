@@ -3,16 +3,34 @@ const toast=document.querySelector('.toast');
 const packageModal=document.querySelector('#package-modal');
 const packageForm=document.querySelector('#package-form');
 const leadEndpoint='https://script.google.com/macros/s/AKfycbw3IeBcPNJA79zKh6ldD8Fbn5ol4k3qYISO4clhj9a83AjEO7BfWlTDWsReg82Ghq-OBA/exec';
+const leadTransport=document.createElement('iframe');
+leadTransport.name='lead-sheet-transport';
+leadTransport.hidden=true;
+leadTransport.setAttribute('aria-hidden','true');
+document.body.append(leadTransport);
 const closePackageModal=()=>{packageModal.classList.remove('is-open');packageModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
 const showToast=()=>{toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),4500);};
-const submitLead=async form=>{
+const submitLead=form=>{
   const button=form.querySelector('button[type="submit"]');
   const initialText=button?.textContent;
   const data=Object.fromEntries(new FormData(form).entries());
   data.source='study.dia-consulting.com.ua';
   if(button){button.disabled=true;button.textContent='ВІДПРАВЛЯЄМО…';}
   try{
-    await fetch(leadEndpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+    const transport=document.createElement('form');
+    transport.method='POST';
+    transport.action=leadEndpoint;
+    transport.target=leadTransport.name;
+    Object.entries(data).forEach(([name,value])=>{
+      const input=document.createElement('input');
+      input.type='hidden';
+      input.name=name;
+      input.value=value;
+      transport.append(input);
+    });
+    document.body.append(transport);
+    transport.submit();
+    transport.remove();
     form.reset();
     showToast();
     return true;
@@ -27,8 +45,8 @@ const submitLead=async form=>{
 document.querySelectorAll('[data-plan]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();packageForm.plan.value=link.dataset.plan;packageModal.classList.add('is-open');packageModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');setTimeout(()=>packageForm.elements.name.focus(),180);}));
 document.querySelectorAll('[data-modal-close]').forEach(button=>button.addEventListener('click',closePackageModal));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&packageModal.classList.contains('is-open'))closePackageModal();});
-form.addEventListener('submit',async event=>{event.preventDefault();await submitLead(form);});
-packageForm.addEventListener('submit',async event=>{event.preventDefault();if(await submitLead(packageForm))closePackageModal();});
+form.addEventListener('submit',event=>{event.preventDefault();submitLead(form);});
+packageForm.addEventListener('submit',event=>{event.preventDefault();if(submitLead(packageForm))closePackageModal();});
 
 const modules=[
   {title:'Вступний урок',category:'СТАРТ',lessons:['Практика 1. Правила проходження Школи продажів.','Практика 2. Формування наміру на програму та постановка цілей.','Практика 3. Дії для підсилення ефективності продажів і показники для вимірювання динаміки програми.','Навчання → впровадження → зворотний зв’язок → корекція → результат.'],homework:'Чекліст: правила, практики та приклади дій.\n1. Прописати й оцифрувати ціль на програму.\n2. Сформувати 30 гіпотез для досягнення цілі — конкретних дій із відмітками виконання.\n3. Упровадити ключові випереджувальні та запізнілі показники для відстеження динаміки проходження курсу.'},
