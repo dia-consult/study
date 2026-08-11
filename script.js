@@ -1,7 +1,14 @@
 const form=document.querySelector('#lead-form');
 const toast=document.querySelector('.toast');
-document.querySelectorAll('[data-plan]').forEach(link=>link.addEventListener('click',()=>{form.plan.value=link.dataset.plan;}));
-form.addEventListener('submit',event=>{event.preventDefault();toast.classList.add('show');form.reset();setTimeout(()=>toast.classList.remove('show'),4500);});
+const packageModal=document.querySelector('#package-modal');
+const packageForm=document.querySelector('#package-form');
+const closePackageModal=()=>{packageModal.classList.remove('is-open');packageModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
+const showToast=()=>{toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),4500);};
+document.querySelectorAll('[data-plan]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();packageForm.plan.value=link.dataset.plan;packageModal.classList.add('is-open');packageModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');setTimeout(()=>packageForm.elements.name.focus(),180);}));
+document.querySelectorAll('[data-modal-close]').forEach(button=>button.addEventListener('click',closePackageModal));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&packageModal.classList.contains('is-open'))closePackageModal();});
+form.addEventListener('submit',event=>{event.preventDefault();showToast();form.reset();});
+packageForm.addEventListener('submit',event=>{event.preventDefault();closePackageModal();showToast();packageForm.reset();});
 
 const modules=[
   {title:'Вступний урок',category:'СТАРТ',lessons:['Практика 1. Правила проходження Школи продажів.','Практика 2. Формування наміру на програму та постановка цілей.','Практика 3. Дії для підсилення ефективності продажів і показники для вимірювання динаміки програми.','Навчання → впровадження → зворотний зв’язок → корекція → результат.'],homework:'Чекліст: правила, практики та приклади дій.\n1. Прописати й оцифрувати ціль на програму.\n2. Сформувати 30 гіпотез для досягнення цілі — конкретних дій із відмітками виконання.\n3. Упровадити ключові випереджувальні та запізнілі показники для відстеження динаміки проходження курсу.'},
