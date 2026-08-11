@@ -1,0 +1,2 @@
+/* Rounded photos without a surrounding gallery frame. */
+.author-gallery{padding:0;background:transparent;border-radius:0;overflow:visible}.author-gallery::after{display:none}.author-gallery figure{border-radius:22px;overflow:hidden}.author-gallery img{border-radius:inherit}.author-gallery>p{left:24px;top:25px}
